@@ -2,10 +2,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
 .logo{
-  margin: 0 0 0 24rem;
+  margin: 0 0 0 33%;
 }
 .navbar{
   background-color:darkgray;
@@ -18,8 +19,9 @@
   }
 
 .item{  
-  font-size: 20px;
+  font-size: 25px;
   margin: 0rem 2rem 0rem 2rem;
+  font-weight: 1000;
 }
 
 .cart{

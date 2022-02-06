@@ -29,8 +29,8 @@ function NavBar() {
                   Relojes
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a className="dropdown-item" href="#">Hombre</a></li>
-                  <li><a className="dropdown-item" href="#">Mujer</a></li>
+                  <li><a className="dropdown-item item" href="#">Hombre</a></li>
+                  <li><a className="dropdown-item item" href="#">Mujer</a></li>
 
                 </ul>
               </li>
