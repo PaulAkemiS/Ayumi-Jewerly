@@ -3,11 +3,13 @@ import "./App.css";
 import Header from "./components/Header";
 
 function App() {
-  return <> 
+  return( <> 
   < Header / >
 
   < NavBar / >
-  </> ;
+
+  </>
+)
 }
 
 export default App;
