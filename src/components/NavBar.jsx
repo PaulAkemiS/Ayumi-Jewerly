@@ -1,7 +1,7 @@
 import React from "react";
 import "../App.css"
 import { GiCutDiamond } from 'react-icons/gi';
-import Cart from "./CartWidget";
+import CartWidget from "./CartWidget";
 
 
 function NavBar() {
@@ -35,7 +35,7 @@ function NavBar() {
                 </ul>
               </li>
 
-              <Cart />
+              <CartWidget />
 
             </ul>
           </div>

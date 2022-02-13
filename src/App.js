@@ -1,7 +1,8 @@
 import { NavBar} from "./components/NavBar";
 import "./App.css";
 import Header from "./components/Header";
-import ItemList from "./components/ItemListContainer";
+import ItemListContainer from "./components/ItemListContainer";
+
 
 function App() {
   return( <> 
@@ -9,9 +10,8 @@ function App() {
 
   < NavBar / >
   
-  < ItemList title="Joyas" text="Esto es una tienda de joyería" />
-  
-
+  < ItemListContainer title="Joyas" text="Esto es una tienda de joyería" />
+ 
 
   </>
 )

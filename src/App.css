@@ -1,36 +1,56 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Josefin Sans', sans-serif;
+  font-family: "Josefin Sans", sans-serif;
 }
 
-.logo{
+.logo {
   margin: 0 0 0 33%;
 }
-.navbar{
-  background-color:darkgray;
+
+.navbar {
+  background-color: darkgray;
 }
 
-.lista{
+.lista {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  }
+}
 
-.item{  
+.item {
   font-size: 25px;
   margin: 0rem 2rem 0rem 2rem;
   font-weight: 1000;
 }
 
-.cart{
+.cart {
   height: 35px;
   width: 60px;
   margin-right: 0;
 }
 
-/* .lineas{
-  border-left: 1px solid black;
-  margin: ;
-} */
+.contador {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.btn-secondary {
+  font-size: 20px;
+  width: 2.5rem;
+}
+
+.btn-light {
+  border: solid 2px lightgray;
+  margin-top: 2rem;
+}
+
+.card {
+  text-align: center;
+  font-size: 20px;
+  font-weight: 600;
+}

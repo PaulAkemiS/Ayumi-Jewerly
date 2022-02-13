@@ -2,7 +2,7 @@ import React from "react";
 import { BsCart2 } from 'react-icons/bs';
 import "../App.css";
 
-function Cart() {
+function CartWidget() {
     return (
 
         <li className="nav-item item">
@@ -12,4 +12,4 @@ function Cart() {
 
 }
 
-export default Cart
+export default CartWidget
