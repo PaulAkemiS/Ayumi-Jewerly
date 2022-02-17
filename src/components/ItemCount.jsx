@@ -4,7 +4,7 @@ import "../App.css"
 
 function ItemCount({ stock, initial }) {
 
-    const [contador, setContador] = useState(0);
+    const [contador, setContador] = useState(initial);
 
     function suma() {
         if (contador < stock) {

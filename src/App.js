@@ -10,7 +10,8 @@ function App() {
 
   < NavBar / >
   
-  < ItemListContainer title="Joyas" text="Esto es una tienda de joyería" />
+  < ItemListContainer />
+
  
 
   </>

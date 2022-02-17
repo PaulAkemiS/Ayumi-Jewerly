@@ -1,15 +1,15 @@
 import React from "react";
 
-function Header(){
-    return(
+function Header() {
+    return (
         <>
-        <header>
-        <div>
-        <img className="logo" src={require ("../Imagenes/AYUMI.png")} alt ="Diamante"/>
-        </div>
-        </header>
+            <header>
+                <div>
+                    <img className="logo" src={require("../Imagenes/AYUMI.png")} alt="Diamante" />
+                </div>
+            </header>
         </>
-    )  
+    )
 }
 
 export default Header;
