@@ -4,7 +4,8 @@ const collares=[
         nombre: "Set cubic susanito",
         precio: 3000,
         stock: 5,
-        imagen: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/183/960/products/img-20201114-wa00051-247639da61aa4a2db816062401493957-1024-1024.jpg"
+        imagen: "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/183/960/products/img-20201114-wa00051-247639da61aa4a2db816062401493957-1024-1024.jpg",
+        descripcion: "Cadena con dije cubic pasante (40, 45 o 50cm) + Aros cubic. 6mm • Material: Plata 925 • Excelente calidad del producto! INCLUYE GARANTÍA"
     },
 
     {
@@ -72,3 +73,4 @@ const traerCollares = new Promise ((resolve, reject) => {
 
 
 export {traerCollares};
+export {collares};

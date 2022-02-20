@@ -76,3 +76,39 @@
   text-align: center;
   margin: 5rem 0 5rem 0;
 }
+
+.flexDetail {
+  display: flex;
+  margin: 1rem 0 0 2rem;
+  flex-direction: row;
+  align-items: center;
+}
+
+.tituloDetail {
+  color: black;
+  font-size: 25px;
+  font-weight: 800;
+  text-align: center;
+  margin: 1rem 0 2rem 1rem;
+}
+
+.itemDetail {
+  font-weight: 700;
+  font-size: 15px;
+  margin: 2rem 2rem 2rem 2rem;
+  color: black;
+}
+
+.imagenDetail {
+  width: 300px;
+}
+
+.btnFlex {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.btnDetail {
+  margin: 3rem 3rem 0 0;
+}
