@@ -1,6 +1,7 @@
 import React from "react";
 import "../App.css"
 import CartWidget from "./CartWidget";
+import { Link } from "react-router-dom";
 
 
 function NavBar() {
@@ -14,7 +15,7 @@ function NavBar() {
           <div className="collapse navbar-collapse lista" id="navbarNavDropdown">
             <ul className="navbar-nav">
               <li className="nav-item item">
-                <a className="nav-link" href="#">Collares</a>
+                <Link to="./productos/categoria/collares" className="nav-link" href="#">Collares</Link>
               </li>
               <li className="nav-item item">
                 <a className="nav-link item lineas" href="#">Aros</a>

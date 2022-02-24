@@ -3,6 +3,7 @@ import "../App.css";
 import ItemCount from "./ItemCount"
 
 function ItemDetail({ item }) {
+
     return (
         <>
             <div className="flexDetail">

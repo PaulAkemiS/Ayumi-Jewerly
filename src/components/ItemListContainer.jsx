@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { traerCollares } from "./Producto";
+import { traerProductos } from "./Producto";
+import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 import "../App.css"
 
@@ -9,19 +10,29 @@ function ItemListContainer() {
 
     const [productos, setProductos] = useState([]);
     const [loading, setLoading] = useState(true);
+    const { categoria } = useParams();
 
     useEffect(() => {
-        traerCollares
-            .then((res) => {
-                setProductos(res);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-            .finally(() => {
-                setLoading(false);
-            });
-    }, []);
+        try {
+            if (categoria) {
+                traerProductos.then((res) => {
+                    let resultado = res.filter((elemento) => {
+                        let mostrarProducto = "";
+                        if (elemento.categoria === categoria) {
+                            mostrarProducto = elemento;
+                        }
+
+                        return mostrarProducto;
+                    });
+
+                    setProductos(resultado);
+                    setLoading(false);
+                });
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    }, [categoria]);
 
 
     return (
@@ -31,11 +42,11 @@ function ItemListContainer() {
             ) : (
                 <section>
                     <h1 className="titulo">Collares</h1>
-                    <ItemList collares={productos} />
+                    <ItemList productos={productos} />
                 </section>
             )}
         </>
     )
 }
 
-export default ItemListContainer
+export default ItemListContainer;

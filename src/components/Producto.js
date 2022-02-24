@@ -1,5 +1,6 @@
-const collares=[
+const productos=[
     {
+        categoria: "collares",
         id:1,
         nombre: "Set cubic susanito",
         precio: 3000,
@@ -9,6 +10,7 @@ const collares=[
     },
 
     {
+        categoria: "collares",
         id:2,
         nombre: "Collar Venecia",
         precio: 2670,
@@ -17,6 +19,7 @@ const collares=[
     },
 
     {
+        categoria: "collares",
         id:3,
         nombre: "Collar Spirit",
         precio: 2810,
@@ -25,6 +28,7 @@ const collares=[
     },
 
     {
+        categoria: "collares",
         id:4,
         nombre: "Collar Medalla Inicial",
         precio: 2870,
@@ -33,6 +37,7 @@ const collares=[
     },
 
     {
+        categoria: "collares",
         id:5,
         nombre: "Collar Electro",
         precio: 3470,
@@ -41,6 +46,7 @@ const collares=[
     },
 
     {
+        categoria: "collares",
         id:6,
         nombre: "Collar Star",
         precio: 3210,
@@ -49,6 +55,7 @@ const collares=[
     },
 
     {
+        categoria: "collares",
         id:7,
         nombre: "Collar Shine",
         precio: 2720,
@@ -57,6 +64,7 @@ const collares=[
     },
 
     {
+        categoria: "collares",
         id:8,
         nombre: "Collar Moon",
         precio: 3210,
@@ -65,12 +73,12 @@ const collares=[
     }
 ]
 
-const traerCollares = new Promise ((resolve, reject) => {
+const traerProductos = new Promise ((resolve, reject) => {
     setTimeout(() => {
-        resolve(collares);
+        resolve(productos);
     }, 3000);
 });
 
 
-export {traerCollares};
-export {collares};
+export {traerProductos};
+export {productos};
