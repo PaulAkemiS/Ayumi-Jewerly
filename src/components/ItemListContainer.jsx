@@ -3,6 +3,7 @@ import { traerProductos } from "./Producto";
 import { useParams } from "react-router-dom";
 import ItemList from "./ItemList";
 import "../App.css"
+import DoubleRingLoading from "../Imagenes/DoubleRingLoading.gif";
 
 
 
@@ -28,6 +29,11 @@ function ItemListContainer() {
                     setProductos(resultado);
                     setLoading(false);
                 });
+            } else {
+                traerProductos.then((res) => {
+                    setProductos(res);
+                    setLoading(false);
+                })
             }
         } catch (error) {
             console.log(error);
@@ -38,10 +44,10 @@ function ItemListContainer() {
     return (
         <>
             {loading ? (
-                <h1 className="cargando">Cargando...</h1>
+                <img className="gif" src={DoubleRingLoading} alt="loading..." />
             ) : (
                 <section>
-                    <h1 className="titulo">Collares</h1>
+
                     <ItemList productos={productos} />
                 </section>
             )}

@@ -21,8 +21,6 @@ function ItemDetail({ item }) {
                     </div>
                 </div>
             </div>
-
-
         </>
     )
 }

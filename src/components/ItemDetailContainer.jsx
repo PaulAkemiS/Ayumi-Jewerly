@@ -3,51 +3,44 @@ import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
 import { productos } from "./Producto";
 import "../App.css";
+import DoubleRingLoading from "../Imagenes/DoubleRingLoading.gif";
 
-console.log(productos)
+const getProductos = () =>
+    new Promise((resolve) => {
+        setTimeout(() => {
+            resolve(productos);
+        }, 2000);
+    })
 
-
-
-
-const getItem = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve(productos);
-    }, 2000);
-});
 
 function ItemDetailContainer() {
-    const [productos, setProductos] = useState([]);
+    const [producto, setProducto] = useState([]);
     const [loading, setLoading] = useState(false);
     const { id } = useParams();
 
     useEffect(() => {
         try {
             if (id) {
-                getItem.then((res) => {
-                    let resultado = res.filter((elemento) => {
-                        let mostrarDetalle;
-                        if (id === elemento.id) {
-                            mostrarDetalle = elemento;
-                        }
-                        console.log(typeof elemento)
-                        return mostrarDetalle;
-                    });
+                async function fetchData() {
+                    const todosLosProductos = await getProductos()
+                    const [productoEncontrado] = todosLosProductos.filter((producto) => id == producto.id ? producto : false);
 
-                    console.log(resultado)
-                    setProductos(resultado);
+                    setProducto(productoEncontrado);
                     setLoading(true);
+                }
 
-                });
+                fetchData();
             }
         } catch (error) {
             console.log(error);
         }
 
     }, [id]);
-    return (
 
+    return (
         <>
-            {loading ? <ItemDetail item={productos} /> : <h1>Cargando</h1>}
+            {loading ? <ItemDetail item={producto} /> : <img className="gif" src={DoubleRingLoading} alt="loading..." />
+            }
 
         </>
     )

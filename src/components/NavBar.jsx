@@ -18,19 +18,24 @@ function NavBar() {
                 <Link to="./productos/categoria/collares" className="nav-link" href="#">Collares</Link>
               </li>
               <li className="nav-item item">
-                <a className="nav-link item lineas" href="#">Aros</a>
+                <Link to="./productos/categoria/aros" className="nav-link item lineas" href="#">Aros</Link>
               </li>
-              <li className="nav-item item">
-                <a className="nav-link lineas" href="#">Anillos y pusleras</a>
+              <li className="nav-item dropdown item">
+                <a className="nav-link dropdown-toggle lineas" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Anillos y pulseras
+                </a>
+                <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><Link to="./productos/categoria/anillos" className="dropdown-item item" href="#">Anillos</Link></li>
+                  <li><Link to="./productos/categoria/pulseras" className="dropdown-item item" href="#">Pulseras</Link></li>
+                </ul>
               </li>
               <li className="nav-item dropdown item">
                 <a className="nav-link dropdown-toggle lineas" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                   Relojes
                 </a>
                 <ul className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                  <li><a className="dropdown-item item" href="#">Hombre</a></li>
-                  <li><a className="dropdown-item item" href="#">Mujer</a></li>
-
+                  <li><Link to="./productos/categoria/relojesH" className="dropdown-item item" href="#">Hombre</Link></li>
+                  <li><Link to="./productos/categoria/relojesM" className="dropdown-item item" href="#">Mujer</Link></li>
                 </ul>
               </li>
 
