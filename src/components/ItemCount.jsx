@@ -18,9 +18,6 @@ function ItemCount({ stock, initial }) {
         }
     }
 
-
-
-
     return (
         <>
             <div className="contador">

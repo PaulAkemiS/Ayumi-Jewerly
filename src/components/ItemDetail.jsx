@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import "../App.css";
-import ItemCount from "./ItemCount"
+import BtnTerminarCompra from "./BtnTerminarCompra";
+import ItemCount from "./ItemCount";
 
 function ItemDetail({ item }) {
+    const [show, setShow] = useState(true);
 
     return (
         <>
@@ -14,11 +16,18 @@ function ItemDetail({ item }) {
                 <div>
                     <p className="itemDetail">$ {item.precio}</p>
                     <p className="itemDetail">{item.descripcion}</p>
-                    <ItemCount stock={item.stock} initial={1} />
-                    <div className="btnFlex">
-                        <button type="button" className="btn btn-light btnDetail">Agregar al carrito</button>
-                        <button type="button" className="btn btn-light btnDetail">Volver</button>
-                    </div>
+                    {show === true ?
+                        <div>
+                            <ItemCount stock={item.stock} initial={1} />
+                            <div className="btnFlex">
+                                <button type="button" className="btn btn-light btnDetail" condition disabled={show ? "" : "disabled"} onClick={() => { setShow(false) }}>Agregar al carrito</button>
+                                <button type="button" className="btn btn-light btnDetail">Volver</button>
+                            </div>
+                        </div> :
+                        <div>
+                            <BtnTerminarCompra />
+                        </div>
+                    }
                 </div>
             </div>
         </>
