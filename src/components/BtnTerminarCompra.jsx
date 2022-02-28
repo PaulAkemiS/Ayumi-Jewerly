@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function BtnTerminarCompra({ show }) {
     return (
         <Link to="/carrito">
-            <button className="btn btn-succes btnDetail" onCLick={show}>
+            <button className="btn btn-light btnDetail btnTerminar" onCLick={show}>
                 Terminar Compra
             </button>
         </Link>
