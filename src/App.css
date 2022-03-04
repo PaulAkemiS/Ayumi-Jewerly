@@ -110,6 +110,7 @@
 
 .imagenDetail {
   width: 300px;
+  margin: 0 0 6rem 0;
 }
 
 .btnFlex {
@@ -130,5 +131,42 @@
   font-weight: 550;
   font-size: 20px;
   text-decoration: none;
-  margin: 3rem 0 0 25rem;
+  margin: 3rem 0 0 16rem;
+}
+
+.btnContinuarCompra {
+  width: 15rem;
+  margin-left: 2rem;
+}
+
+.flexCarrito {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.imgCarrito {
+  width: 12rem;
+  margin-top: 3rem;
+}
+
+.descripcionCarrito {
+  font-size: 25px;
+  font-weight: 600;
+  margin-top: 8rem;
+}
+
+.btnCarrito {
+  width: 10rem;
+  height: 3rem;
+  margin-top: 8rem;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.btnVaciarCarrito {
+  width: 15rem;
+  margin: 6rem 0 6rem 35rem;
+  font-size: 20px;
+  font-weight: 600;
 }

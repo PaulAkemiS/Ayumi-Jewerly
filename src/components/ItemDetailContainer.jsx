@@ -4,6 +4,7 @@ import ItemDetail from "./ItemDetail";
 import { productos } from "./Producto";
 import "../App.css";
 import DoubleRingLoading from "../Imagenes/DoubleRingLoading.gif";
+import { useCartContext } from "./CartContext";
 
 const getProductos = () =>
     new Promise((resolve) => {
@@ -11,6 +12,7 @@ const getProductos = () =>
             resolve(productos);
         }, 2000);
     })
+
 
 
 function ItemDetailContainer() {
