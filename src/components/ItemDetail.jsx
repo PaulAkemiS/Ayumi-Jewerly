@@ -3,6 +3,7 @@ import "../App.css";
 import BtnTerminarCompra from "./BtnTerminarCompra";
 import { Link } from "react-router-dom";
 import { useCartContext } from "./CartContext";
+import ItemCount from "./ItemCount";
 
 function ItemDetail({ item }) {
     const [show, setShow] = useState(true);
@@ -38,16 +39,7 @@ function ItemDetail({ item }) {
                     <p className="itemDetail">{item.descripcion}</p>
                     {show === true ? (
                         <div>
-                            <div className="contador">
-                                <button type="button" className="btn btn-secondary" onClick={restar}>
-                                    -
-                                </button>
-
-                                <p style={{ color: "black" }}>{contador}</p>
-                                <button type="button" className="btn btn-secondary" onClick={incrementar}>
-                                    +
-                                </button>
-                            </div>
+                            <ItemCount clickMenos={restar} count={contador} clickMas={incrementar} />
 
 
                             <div className="btnFlex">

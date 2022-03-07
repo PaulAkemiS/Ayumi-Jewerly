@@ -16,9 +16,9 @@ function Cart() {
                             <div className="flexCarrito">
                                 <img className="imgCarrito" src={i.imagen} alt="ERROR" />
                                 <p className="descripcionCarrito">
-                                    {i.name} x {i.cantidad} Total = $ {i.precio * i.cantidad}
+                                    {i.nombre} x {i.cantidad} Total = $ {i.precio * i.cantidad}
                                 </p>
-                                <button className="btn btn-light btnCarrito" onClick={eliminarItem}>
+                                <button className="btn btn-light btnCarrito" onClick={() => eliminarItem(i.id, i.cantidad)}>
                                     Eliminar
                                 </button>
                             </div>
