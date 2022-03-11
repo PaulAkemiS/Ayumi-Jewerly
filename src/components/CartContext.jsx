@@ -29,11 +29,15 @@ function CartProvider({ children }) {
 
     const eliminarItem = (id, cantidad) => {
         const carritoNuevo = cartItems.filter((e) => e.id !== id);
-        setCartItems(carritoNuevo)
-        setCartCount((prev) => cantidad - prev)
-    }
+        setCartCount(cartCount - cantidad);
+        setCartItems(carritoNuevo);
+    };
 
-    return <CartContext.Provider value={{ cartItems, cartCount, addItem, eliminarItem, vaciarCarrito }}>{children}</CartContext.Provider>;
+    const totalCompra = () => {
+        return cartItems.reduce((acum, item) => acum + item.precio * item.cantidad, 0);
+    };
+
+    return <CartContext.Provider value={{ cartItems, cartCount, addItem, eliminarItem, vaciarCarrito, totalCompra }}>{children}</CartContext.Provider>;
 }
 
 export { CartContext };

@@ -170,3 +170,25 @@
   font-size: 20px;
   font-weight: 600;
 }
+
+.numeroCarrito {
+  font-family: "Josefin Sans", sans-serif;
+  font-size: 25px;
+  font-weight: 500;
+  text-decoration: none;
+  background-color: darkgray;
+  border: unset;
+}
+
+.totalCompra {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 5rem 0 0 39rem;
+}
+
+.regresarInicio {
+  font-size: 30px;
+  font-weight: 600;
+  color: darkgray;
+  margin: 3rem 0 0 26rem;
+}
