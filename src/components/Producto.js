@@ -31,8 +31,7 @@ const productos = [
     stock: 6,
     imagen:
       "https://d3ugyf2ht6aenh.cloudfront.net/stores/001/183/960/products/1d366fe78eeaa6881e55e3c38a97222911-cd148a6be71912ead816224151199088-1024-1024.jpg",
-    descripcion:
-      "Collar con cadena grumet y dije corazón calado pasante. • Material: Plata 925 • Excelente calidad del producto! INCLUYE GARANTÍA",
+    descripcion: "no",
   },
 
   {

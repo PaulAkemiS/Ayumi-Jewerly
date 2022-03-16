@@ -1,18 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
 import ItemDetail from "./ItemDetail";
-import { productos } from "./Producto";
+import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import db from "../services/firebase";
 import "../App.css";
 import DoubleRingLoading from "../Imagenes/DoubleRingLoading.gif";
-import { useCartContext } from "./CartContext";
-
-const getProductos = () =>
-    new Promise((resolve) => {
-        setTimeout(() => {
-            resolve(productos);
-        }, 2000);
-    })
-
 
 
 function ItemDetailContainer() {
@@ -20,32 +12,63 @@ function ItemDetailContainer() {
     const [loading, setLoading] = useState(false);
     const { id } = useParams();
 
-    useEffect(() => {
+    const getElegido = async () => {
         try {
-            if (id) {
-                async function fetchData() {
-                    const todosLosProductos = await getProductos()
-                    const [productoEncontrado] = todosLosProductos.filter((producto) => id == producto.id ? producto : false);
-
-                    setProducto(productoEncontrado);
-                    setLoading(true);
-                }
-
-                fetchData();
-            }
+            const document = doc(db, "Items", id);
+            const response = await getDoc(document);
+            const result = { id: response.id, ...response.data() };
+            setProducto(result);
+            setLoading(true);
         } catch (error) {
-            console.log(error);
+            console.log("error", error);
         }
+    };
 
+    useEffect(() => {
+        getElegido();
     }, [id]);
 
-    return (
-        <>
-            {loading ? <ItemDetail item={producto} /> : <img className="gif" src={DoubleRingLoading} alt="loading..." />
-            }
-
-        </>
-    )
+    return <>{loading ? <ItemDetail item={producto} /> : <img className="gif" src={DoubleRingLoading} alt="loading..."></img>}</>;
 }
 
 export default ItemDetailContainer;
+
+
+
+
+//     const getProductos = () =>
+//     new Promise((resolve) => {
+//         setTimeout(() => {
+//             resolve(productos);
+//         }, 2000);
+//     })
+
+
+
+//     useEffect(() => {
+//         try {
+//             if (id) {
+//                 async function fetchData() {
+//                     const todosLosProductos = await getProductos()
+//                     const [productoEncontrado] = todosLosProductos.filter((producto) => id == producto.id ? producto : false);
+
+//                     setProducto(productoEncontrado);
+//                     setLoading(true);
+//                 }
+
+//                 fetchData();
+//             }
+//         } catch (error) {
+//             console.log(error);
+//         }
+
+//     }, [id]);
+
+//     return (
+//         <>
+//             {loading ? <ItemDetail item={producto} /> : <img className="gif" src={DoubleRingLoading} alt="loading..." />
+//             }
+
+//         </>
+//     )
+// }

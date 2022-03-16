@@ -4,7 +4,7 @@ import Item from "./Item";
 function ItemList({ productos }) {
     return (
 
-        <div className="flexProductos">
+        <div key={productos.id} className="flexProductos">
             {productos && productos.map((p) => {
                 return <Item item={p} />
             })}
@@ -14,4 +14,4 @@ function ItemList({ productos }) {
     )
 }
 
-export default ItemList
+export default ItemList;
