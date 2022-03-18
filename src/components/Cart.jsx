@@ -45,6 +45,9 @@ function Cart() {
                     <button className="btn btn-secondary btnVaciarCarrito" onClick={vaciarCarrito}>
                         Vaciar Carrito
                     </button>
+                    <Link to="./finalizarcompra">
+                        <button className="btn btn-secondary btnVaciarCarrito">Realizar Pago</button>
+                    </Link>
 
                 </>
             )}
@@ -53,3 +56,5 @@ function Cart() {
 }
 
 export default Cart;
+
+

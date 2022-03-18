@@ -50,7 +50,6 @@ function ItemListContainer() {
                 <img className="gif" src={DoubleRingLoading} alt="loading..." />
             ) : (
                 <section>
-
                     <ItemList productos={productos} />
                 </section>
             )}

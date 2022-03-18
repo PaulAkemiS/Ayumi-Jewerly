@@ -51,4 +51,4 @@ function NavBar() {
   )
 }
 
-export { NavBar }
+export { NavBar };
