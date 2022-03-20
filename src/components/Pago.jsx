@@ -47,7 +47,7 @@ function FormularioCompra() {
             querySnapshot.forEach((doc) => {
                 setOrderId(doc.id, doc.data());
             });
-            swal("Felicitaciones", `Tu orden es la ${orderId}`, "success");
+            swal("Felicitaciones😄", `Tu orden es la ${orderId}`, "success");
             vaciarCarrito();
         } catch (error) {
             console.log("error=>", error);
