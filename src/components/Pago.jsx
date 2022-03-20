@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { useCartContext } from "./CartContext";
-import { collection, Timestamp, addDoc } from "firebase/firestore";
+import { collection, Timestamp, addDoc, getDocs } from "firebase/firestore";
 import "../App.css";
 import db from "../services/firebase";
 import swal from "sweetalert";
 
 function FormularioCompra() {
     const { cartItems } = useCartContext();
-
+    const { vaciarCarrito } = useCartContext()
+    const [orderId, setOrderId] = useState()
     const sendOrder = async (e) => {
         e.preventDefault();
         let order;
@@ -25,7 +26,7 @@ function FormularioCompra() {
                 items: cartItems,
                 total: cartItems.reduce((acum, item) => acum + item.precio * item.cantidad, 0),
             };
-            swal("Felicitaciones", "Tu compra ha sido registrada", "success");
+
         }
 
         const orderCollection = collection(db, "orders");
@@ -33,6 +34,21 @@ function FormularioCompra() {
         try {
             const newDoc = await addDoc(orderCollection, order);
             console.log(newDoc);
+        } catch (error) {
+            console.log("error=>", error);
+        }
+        getOrder()
+    };
+
+    const getOrder = async () => {
+        try {
+            const orderCollection = collection(db, "orders");
+            const querySnapshot = await getDocs(orderCollection);
+            querySnapshot.forEach((doc) => {
+                setOrderId(doc.id, doc.data());
+            });
+            swal("Felicitaciones", `Tu orden es la ${orderId}`, "success");
+            vaciarCarrito();
         } catch (error) {
             console.log("error=>", error);
         }
