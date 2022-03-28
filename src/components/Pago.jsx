@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { useCartContext } from "./CartContext";
-import { collection, Timestamp, addDoc, getDocs } from "firebase/firestore";
+import { collection, Timestamp, addDoc } from "firebase/firestore";
+import { Link } from "react-router-dom";
 import "../App.css";
 import db from "../services/firebase";
 import swal from "sweetalert";
@@ -8,12 +9,20 @@ import swal from "sweetalert";
 function FormularioCompra() {
     const { cartItems } = useCartContext();
     const { vaciarCarrito } = useCartContext()
-    const [orderId, setOrderId] = useState()
+
+    const validateEmail = (email) => {
+        return String(email)
+            .toLowerCase()
+            .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+    };
+
     const sendOrder = async (e) => {
         e.preventDefault();
         let order;
-        if (e.target[0].value === "") {
+        if (e.target[0].value === "" || e.target[2].value === "" || e.target[3].value === "") {
             swal("Cuidado!", "Debes completar todos los campos", "error");
+        } else if (validateEmail(e.target[1].value) === null) {
+            swal("Cuidado!", "Direccion de mail incorrecta", "error");
         } else {
             order = {
                 comprador: {
@@ -33,26 +42,14 @@ function FormularioCompra() {
 
         try {
             const newDoc = await addDoc(orderCollection, order);
-            console.log(newDoc);
-        } catch (error) {
-            console.log("error=>", error);
-        }
-        getOrder()
-    };
 
-    const getOrder = async () => {
-        try {
-            const orderCollection = collection(db, "orders");
-            const querySnapshot = await getDocs(orderCollection);
-            querySnapshot.forEach((doc) => {
-                setOrderId(doc.id, doc.data());
-            });
-            swal("Felicitaciones😄", `Tu orden es la ${orderId}`, "success");
+            swal("Felicitaciones", `Tu orden es la ${newDoc.id}`, "success");
             vaciarCarrito();
         } catch (error) {
             console.log("error=>", error);
         }
     };
+
 
     return (
         <>
@@ -67,6 +64,11 @@ function FormularioCompra() {
                 <button className="btn btn-secondary btnPagar" type="submit">
                     Pagar
                 </button>
+                <Link to="/">
+                    <button className="btn btn-light btnPagar" type="reset">
+                        Volver
+                    </button>
+                </Link>
             </form>
         </>
     );
