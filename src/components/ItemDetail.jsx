@@ -48,9 +48,9 @@ function ItemDetail({ item }) {
 
 
                             <div className="btnFlex">
-                                <button type="button" className="btn btn-light btnDetail" condition disabled={show ? "" : "disabled"} onClick={dobleFuncion}>Agregar al carrito</button>
+                                <button type="button" className="btn btn-light btnDetail btnTerminar" condition disabled={show ? "" : "disabled"} onClick={dobleFuncion}>Agregar al carrito</button>
                                 <Link to="/">
-                                    <button type="button" className="btn btn-light btnDetail">Volver</button>
+                                    <button type="button" className="btn btn-light btnDetail btnContinuarCompra">Volver</button>
                                 </Link>
                             </div>
                         </div>
@@ -59,7 +59,7 @@ function ItemDetail({ item }) {
                             <BtnTerminarCompra />
 
                             <Link to="/">
-                                <button className="btn btn-secondary btnDetail btnContinuarCompra">Continuar Comprando</button>
+                                <button className="btn btn-light btnDetail btnContinuarCompra">Continuar Comprando</button>
                             </Link>
                         </div>
                     )}

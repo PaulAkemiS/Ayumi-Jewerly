@@ -8,18 +8,24 @@ import swal from "sweetalert";
 
 function FormularioCompra() {
     const { cartItems } = useCartContext();
-    const { vaciarCarrito } = useCartContext()
+    const { vaciarCarrito } = useCartContext();
 
     const validateEmail = (email) => {
         return String(email)
             .toLowerCase()
-            .match(/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/);
+            .match(
+                /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            );
     };
 
     const sendOrder = async (e) => {
         e.preventDefault();
         let order;
-        if (e.target[0].value === "" || e.target[2].value === "" || e.target[3].value === "") {
+        if (
+            e.target[0].value === "" ||
+            e.target[2].value === "" ||
+            e.target[3].value === ""
+        ) {
             swal("Cuidado!", "Debes completar todos los campos", "error");
         } else if (validateEmail(e.target[1].value) === null) {
             swal("Cuidado!", "Direccion de mail incorrecta", "error");
@@ -33,9 +39,11 @@ function FormularioCompra() {
                     fecha: Timestamp.fromDate(new Date()),
                 },
                 items: cartItems,
-                total: cartItems.reduce((acum, item) => acum + item.precio * item.cantidad, 0),
+                total: cartItems.reduce(
+                    (acum, item) => acum + item.precio * item.cantidad,
+                    0
+                ),
             };
-
         }
 
         const orderCollection = collection(db, "orders");
@@ -50,25 +58,34 @@ function FormularioCompra() {
         }
     };
 
-
     return (
         <>
             <form className="forms" onSubmit={sendOrder}>
-                <input className="innerForm" placeholder="Nombre y Apellido" type="text" />
+                <input
+                    className="innerForm"
+                    placeholder="Nombre y Apellido"
+                    type="text"
+                />
                 <br />
                 <input className="innerForm" placeholder="Mail" type="mail" />
                 <br />
-                <input className="innerForm" placeholder="Número de Teléfono" type="number" />
+                <input
+                    className="innerForm"
+                    placeholder="Número de Teléfono"
+                    type="number"
+                />
                 <br />
                 <input className="innerForm" placeholder="Domicilio" type="text" />
-                <button className="btn btn-secondary btnPagar" type="submit">
-                    Pagar
-                </button>
-                <Link to="/">
-                    <button className="btn btn-light btnPagar" type="reset">
-                        Volver
+                <div className="flexCarrito">
+                    <button className="btn btn-light" type="submit">
+                        Pagar
                     </button>
-                </Link>
+                    <Link to="/">
+                        <button className="btn btn-light" type="reset">
+                            Volver
+                        </button>
+                    </Link>
+                </div>
             </form>
         </>
     );

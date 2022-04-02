@@ -14,7 +14,7 @@ function Cart() {
             {cartItems.length === 0 ? (
                 <>
                     <div className="columnFlex">
-                        <h1 className="titulos">Carrito Vacio</h1>
+                        <h1 className="titulos carritoVacio">Carrito Vacío</h1>
                         <Link to="/" className="regresarInicio">
                             Vuelve a ver todos nuestros productos
                         </Link>
@@ -42,13 +42,14 @@ function Cart() {
             ) : (
                 <>
                     <p className="totalCompra">Total $ {totalCompra()} </p>
-                    <button className="btn btn-secondary btnVaciarCarrito" onClick={vaciarCarrito}>
-                        Vaciar Carrito
-                    </button>
-                    <Link to="./finalizarcompra">
-                        <button className="btn btn-secondary btnVaciarCarrito">Realizar Pago</button>
-                    </Link>
-
+                    <div className="flexCarrito">
+                        <button className="btn btn-secondary btnVaciarCarrito" onClick={vaciarCarrito}>
+                            Vaciar Carrito
+                        </button>
+                        <Link to="./finalizarcompra">
+                            <button className="btn btn-secondary btnRealizarPago">Realizar Pago</button>
+                        </Link>
+                    </div>
                 </>
             )}
         </>

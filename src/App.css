@@ -128,15 +128,19 @@
 }
 
 .btnTerminar {
+  width: 15rem;
   font-weight: 550;
   font-size: 20px;
   text-decoration: none;
-  margin: 3rem 0 0 16rem;
+  margin: 3rem 0 0 3rem;
 }
 
 .btnContinuarCompra {
   width: 15rem;
   margin-left: 2rem;
+  font-weight: 550;
+  font-size: 20px;
+  text-decoration: none;
 }
 
 .flexCarrito {
@@ -166,9 +170,20 @@
 
 .btnVaciarCarrito {
   width: 15rem;
-  margin: 6rem 0 6rem 35rem;
+  margin: 6rem 0 6rem 8rem;
   font-size: 20px;
   font-weight: 600;
+}
+
+.btnRealizarPago {
+  width: 15rem;
+  margin: 6rem 8rem 6rem 0;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.carritoVacio {
+  margin: 5rem 0 6rem 35rem;
 }
 
 .numeroCarrito {
@@ -210,6 +225,6 @@
 }
 
 .btnPagar {
-  margin: 2rem 0 1rem 10rem;
-  width: 6rem;
+  margin: 3rem 0 3rem 8rem;
+  width: 12rem;
 }
